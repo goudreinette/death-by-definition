@@ -1,0 +1,15 @@
+{
+  "name": "woekerword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "definition.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "word-definition": "^2.1.6"
+  }
+}

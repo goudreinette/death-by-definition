@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  height: 100%;
+  margin: 0;
+  font-family: Helvetica;
+  font-family: 'Circular Std';
+}
+
+.text {
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+span {
+   background: rgba(173, 216, 230, 0.327);;
+   padding: 5px;
+   border-radius: 5px;
+}
+
+span:hover {
+   background: rgba(173, 216, 230, 0.627);;
+   padding: 5px;
+   border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.list-complete-item {
+  transition: all .5s;
+  display: inline-block;
+}
+
+.list.list-complete-item {
+   transition: none .5s;
+}
+
+
+.list-move {
+  opacity: .5;
+  transform: scale(1.2);
+}

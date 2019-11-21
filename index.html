@@ -1,0 +1,43 @@
+<head>
+    <script src="./libraries/rita-full.min.js"></script>
+    <script src="./libraries/vue.js"></script>
+    <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
+</head>
+
+<div class="app">
+    <div class="sentence">
+       {{sentence}}
+    </div>
+    <button class="woeker">
+        Woeker
+    </button>
+</div>
+
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    .app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    button.woeker {
+        margin-top: 20px;;
+    }
+</style>
+
+
+<script>
+    new Vue({
+        el: '.app',
+        data: {
+            sentence: 'The quick brown fox jumped over the lazy dog.'
+        }
+    })
+</script>
