@@ -1,45 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  height: 100%;
-  margin: 0;
-  font-family: Helvetica;
-  font-family: 'Circular Std';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* TODO MINMAX */
+    font-size: 32px;
+    height: 100%;
+    margin: 0;
+    font-family: Helvetica;
+    font-family: 'Circular Std';
 }
 
 .text {
-  max-width: 800px;
-  text-align: center;
-  line-height: 1.5;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.5;
 }
 
 span {
-   background: rgba(173, 216, 230, 0.327);;
-   padding: 5px;
-   border-radius: 5px;
+    background: rgba(147, 147, 147, 0.33);
+    padding: 10px 5px;
+    border-radius: 5px;
+    height: 70px;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 span:hover {
-   background: rgba(173, 216, 230, 0.627);;
-   padding: 5px;
-   border-radius: 5px;
-  cursor: pointer;
+    background: rgba(0, 0, 0, 0.24);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.brace {
+    /*padding: 0;*/
+    font-style: normal !important;
 }
 
 
 .list-complete-item {
-  transition: all .5s;
-  display: inline-block;
+    transition: all .5s;
+    display: inline-block;
 }
-
-.list.list-complete-item {
-   transition: none .5s;
-}
-
 
 .list-move {
-  opacity: .5;
-  transform: scale(1.2);
+    opacity: .5;
+    transform: scale(1.2);
+}
+
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Levels
+|--------------------------------------------------------------------------
+|
+*/
+span[data-level="0"] {
+    font-size: 100%;
+}
+
+span[data-level="1"] {
+    font-size: 80%;
+    opacity: .8;
+    font-style: italic;
+    background: rgba(191, 191, 191, 0.22);;
+}
+
+span[data-level="2"] {
+    font-size: 60%;
+    opacity: .6;
+    background: rgba(191, 191, 191, 0.17);;
+}
+
+span[data-level="3"] {
+    font-size: 40%;
+    opacity: .4;
+    font-style: italic;
+    background: rgba(191, 191, 191, 0.12);;
+}
+
+span[data-level="4"] {
+    font-size: 30%;
+    opacity: .25;
+    background: rgba(191, 191, 191, 0.08);;
+}
+
+span[data-level="5"] {
+    font-size: 20%;
+    opacity: .2;
+    font-style: italic;
+    background: rgba(191, 191, 191, 0.04);;
 }

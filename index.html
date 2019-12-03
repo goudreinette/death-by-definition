@@ -1,43 +1,77 @@
 <head>
-    <script src="./libraries/rita-full.min.js"></script>
     <script src="./libraries/vue.js"></script>
-    <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
+    <link rel="stylesheet" href="./test.css">
 </head>
 
+
 <div class="app">
-    <div class="sentence">
-       {{sentence}}
+    <div class="text">
+        <transition-group class="list" tag="div" name="list">
+            <span class="list-complete-item"
+                :class="{brace: word.word == ')' || word.word == '('}"
+                :data-level="word.level"
+                v-for="(word, i) in text" 
+                :key="word.key"
+                @click="addDefinition(word, i)">
+                {{word.word}}
+            </span>
+        </transition-group>
     </div>
-    <button class="woeker">
-        Woeker
-    </button>
 </div>
 
 
-<style>
-    body {
-        margin: 0;
-    }
-
-    .app {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-    }
-
-    button.woeker {
-        margin-top: 20px;;
-    }
-</style>
-
-
 <script>
-    new Vue({
-        el: '.app',
-        data: {
-            sentence: 'The quick brown fox jumped over the lazy dog.'
+let i = 0
+
+
+new Vue({
+    el: '.app',
+    data: {
+        text: makeWords('Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.'.split(' '))
+    },
+
+    methods: {
+        async addDefinition(word, i) {
+            if (!word.alreadyExpanded) {
+                let def = await getDefinition(word.word)
+                let words = def.split(/\s+/).filter(w => w != '')
+                let levelDeeper = word.level + 1
+                this.text = [
+                    ...this.text.slice(0, i + 1),
+                    ...makeWords(['('], levelDeeper),
+                    ...makeWords(words, levelDeeper), // insert in the middle
+                    ...makeWords([')'], levelDeeper),
+                    ...this.text.slice(i + 1)
+                ]
+            }
         }
-    })
+    }
+})
+
+
+
+
+
+async function getDefinition(word) {
+    const key = '4eb52a73-003b-48e9-a88c-81d96c9b2e65'
+    let response = await fetch(`https://www.dictionaryapi.com/api/v3/references/sd4/json/${word}?key=${key}`)
+    let definitions = await response.json()
+    return definitions[0].shortdef[0]
+}
+
+
+function makeWords(words, level = 0) {
+    return words.map(word => ({
+        word,
+        key: i++,
+        level,
+        alreadyExpanded: false
+    }))
+}
+
+
+function randomElement(array) {
+    return array[Math.floor(Math.random() * array.length)]
+}
+
 </script>
