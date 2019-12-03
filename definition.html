@@ -25,20 +25,18 @@ let i = 0
 new Vue({
     el: '.app',
     data: {
-        text: addKeys(['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'])
-        // text: addKeys(['Fuck', 'this'])
+        // text: addKeys(['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'])
+        text: addKeys('In the beginning God created the heaven and the earth'.split(' '))
     },
 
     methods: {
         async replaceWithDefinition(word, i) {
             let def = await getDefinition(word)
-            def = def.replace(/^[aA]/, '')
-            def = def.replace(/\s*/, ' ')
+            def = def.replace(/^[aA]/, '').replace(/\s*/, ' ')
 
             if (def.includes(':')) {
                 def = def.split(':')[0]
             }
-            
 
             let words = def.split(/\s+/).filter(w => w != '')
             this.text.splice(i, 1, ...addKeys(words))
@@ -69,4 +67,5 @@ function addKeys(words) {
 function randomElement(array) {
     return array[Math.floor(Math.random() * array.length)]
 }
+
 </script>
