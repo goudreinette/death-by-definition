@@ -1,3 +1,15 @@
+/*
+|--------------------------------------------------------------------------
+| Font
+|--------------------------------------------------------------------------
+*/
+@font-face {
+    font-family: 'Circular';
+    src: url("circularstd-book.otf");
+}
+
+
+
 * {
     box-sizing: border-box;
 }
@@ -7,11 +19,11 @@ body {
     justify-content: center;
     align-items: center;
     /* TODO MINMAX */
-    font-size: 32px;
+    font-size: 24px;
     height: 100%;
     margin: 0;
     font-family: Helvetica;
-    font-family: 'Circular Std';
+    font-family: 'Circular';
 }
 
 .text {
@@ -22,9 +34,9 @@ body {
 
 span {
     background: rgba(147, 147, 147, 0.33);
-    padding: 10px 5px;
+    padding: .3em .25em;
     border-radius: 5px;
-    height: 70px;
+    height: 60px;
     display: inline-flex !important;
     justify-content: center;
     align-items: center;
@@ -32,8 +44,6 @@ span {
 
 span:hover {
     background: rgba(0, 0, 0, 0.24);
-    padding: 5px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -105,15 +115,4 @@ span[data-level="5"] {
     opacity: .2;
     font-style: italic;
     background: rgba(191, 191, 191, 0.04);;
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Font
-|--------------------------------------------------------------------------
-*/
-@font-face {
-    font-family: 'Circular Std';
-    src: url("./circularstd-book.otf");
 }
