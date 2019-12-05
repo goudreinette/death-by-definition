@@ -42,7 +42,7 @@ span {
     align-items: center;
 }
 
-span:hover {
+.app:not(.showcase) span:hover {
     background: rgba(0, 0, 0, 0.24);
     cursor: pointer;
 }

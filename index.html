@@ -28,20 +28,25 @@ let i = 0
 new Vue({
     el: '.app',
     data: {
-        text: makeWords('Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.'.split(' '))
+        // text: makeWords('Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.'.split(' '))
+        text: makeWords('All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood'.split(' ')),
+        // text: makeWords('For sale are a pair of very rare Dairy Queen advertising rubber duckies. One is yellow and the other is green. The ducks are approximately 3" long. They are both in excellent, not played with condition but have been taken out of their original packaging. These came from the collection of the one time Dairy Queen franchise owner. Please review all pictures prior to your purchase.'.split(' '))
     },
 
     methods: {
         async addDefinition(word, i) {
             if (!word.alreadyExpanded) {
                 let def = await getDefinition(word.word)
+
+                def = def.replace(/^[aA]/, '')
+
                 let words = def.split(/\s+/).filter(w => w != '')
                 let levelDeeper = word.level + 1
                 this.text = [
-                    ...this.text.slice(0, i + 1),
-                    ...makeWords(['('], levelDeeper),
+                    ...this.text.slice(0, i),
+                    // ...makeWords(['('], levelDeeper),
                     ...makeWords(words, levelDeeper), // insert in the middle
-                    ...makeWords([')'], levelDeeper),
+                    // ...makeWords([')'], levelDeeper),
                     ...this.text.slice(i + 1)
                 ]
             }
