@@ -9,7 +9,6 @@
 }
 
 
-
 * {
     box-sizing: border-box;
 }
@@ -127,3 +126,40 @@ span[data-level="5"] {
 /*    font-family: 'Circular Std';*/
 /*    src: url("./circularstd-book.otf");*/
 /*}*/
+
+
+/*
+|--------------------------------------------------------------------------
+| Nav
+|--------------------------------------------------------------------------
+*/
+nav {
+    position: absolute;
+    width: 100vw;
+    height: 70px;
+    /*border-bottom: 1px solid #eee;*/
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1.4;
+    text-decoration-color: rgba(0, 0, 0, 0.21);
+}
+
+.sep {
+    padding: 0 15px;
+    font-weight: lighter;
+    opacity: .3;
+}
+
+nav a.active {
+    text-decoration-color: rgba(0, 0, 0, 0.8);
+}
+
+
