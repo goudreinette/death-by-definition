@@ -785,6 +785,7 @@
             brother
         </span></div></div>
             </div>
+            <div key="4" class="slide dummy"></div>
         </template>
     </transition-group>
 
@@ -802,6 +803,12 @@
             </transition-group>
         </div>
     </transition>
+
+    <transition name="list">
+        <div class="hint" v-if="screen == 'tool' && hintVisible">
+            click on a word to expand it's definition
+        </div>
+    </transition>
 </div>
 
 
@@ -812,6 +819,7 @@
         el: '.app',
         data: {
             screen: 'showcase',
+            hintVisible: true,
             // text: makeWords('Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.'.split(' '))
             text: makeWords('All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood'.split(' ')),
             // text: makeWords('For sale are a pair of very rare Dairy Queen advertising rubber duckies. One is yellow and the other is green. The ducks are approximately 3" long. They are both in excellent, not played with condition but have been taken out of their original packaging. These came from the collection of the one time Dairy Queen franchise owner. Please review all pictures prior to your purchase.'.split(' '))
@@ -819,6 +827,7 @@
 
         methods: {
             async addDefinition(word, i) {
+                this.hintVisible = false
                 if (!word.alreadyExpanded) {
                     let def = await getDefinition(word.word)
 
@@ -895,6 +904,11 @@
 		flex-flow: row;
 		flex-shrink: 0;
 	}
+
+    .slide.dummy {
+        scroll-snap-align: none;
+        width: 30vw;
+    }
 
     .slide:first-of-type {
         margin-left: 30vw;

@@ -202,3 +202,25 @@ nav > span:hover, nav span.active  {
     background: rgba(115, 115, 115, 0.3);
 }
 
+
+.hint {
+    position: absolute;
+    bottom: 200px;
+    width: 100vw;
+    text-align: center;
+    font-size: 16px;
+    animation: pulse .8s linear infinite alternate;
+}
+
+
+@keyframes pulse {
+    from {
+        opacity: .2;
+    }
+    
+    to {
+        opacity: .5;
+    }
+}
+
+
