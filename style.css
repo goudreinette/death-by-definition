@@ -1,3 +1,14 @@
+/*
+|--------------------------------------------------------------------------
+| Font
+|--------------------------------------------------------------------------
+*/
+@font-face {
+    font-family: 'Circular';
+    src: url("circularstd-book.otf");
+}
+
+
 * {
     box-sizing: border-box;
 }
@@ -7,11 +18,11 @@ body {
     justify-content: center;
     align-items: center;
     /* TODO MINMAX */
-    font-size: 32px;
+    font-size: 24px;
     height: 100%;
     margin: 0;
     font-family: Helvetica;
-    font-family: 'Circular Std';
+    font-family: 'Circular';
 }
 
 .text {
@@ -22,18 +33,16 @@ body {
 
 span {
     background: rgba(147, 147, 147, 0.33);
-    padding: 10px 5px;
+    padding: .3em .25em;
     border-radius: 5px;
-    height: 70px;
+    height: 60px;
     display: inline-flex !important;
     justify-content: center;
     align-items: center;
 }
 
-span:hover {
+.app:not(.showcase) span:hover {
     background: rgba(0, 0, 0, 0.24);
-    padding: 5px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -117,3 +126,40 @@ span[data-level="5"] {
 /*    font-family: 'Circular Std';*/
 /*    src: url("./circularstd-book.otf");*/
 /*}*/
+
+
+/*
+|--------------------------------------------------------------------------
+| Nav
+|--------------------------------------------------------------------------
+*/
+nav {
+    position: absolute;
+    width: 100vw;
+    height: 70px;
+    /*border-bottom: 1px solid #eee;*/
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1.4;
+    text-decoration-color: rgba(0, 0, 0, 0.21);
+}
+
+.sep {
+    padding: 0 15px;
+    font-weight: lighter;
+    opacity: .3;
+}
+
+nav a.active {
+    text-decoration-color: rgba(0, 0, 0, 0.8);
+}
+
+
