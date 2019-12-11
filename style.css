@@ -6,6 +6,13 @@
 @font-face {
     font-family: 'Circular';
     src: url("circularstd-book.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url("circularstd-bold.otf");
+    font-weight: bold;
 }
 
 
@@ -29,6 +36,14 @@ body {
     max-width: 800px;
     text-align: center;
     line-height: 1.5;
+}
+
+.app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
 }
 
 span {
@@ -136,6 +151,7 @@ span[data-level="5"] {
 nav {
     position: absolute;
     width: 100vw;
+    z-index: 2;
     height: 70px;
     /*border-bottom: 1px solid #eee;*/
     display: flex;
@@ -145,12 +161,7 @@ nav {
     left: 0;
 }
 
-nav a {
-    font-size: 16px;
-    color: black;
-    letter-spacing: 1.4;
-    text-decoration-color: rgba(0, 0, 0, 0.21);
-}
+
 
 .sep {
     padding: 0 15px;
@@ -162,4 +173,32 @@ nav a.active {
     text-decoration-color: rgba(0, 0, 0, 0.8);
 }
 
+
+h1 {
+    font-size: 24px;
+    margin-right: 40px; 
+}
+
+h1 span {
+    background:  rgba(147, 147, 147, 0.15);;
+}
+
+nav span {
+    height: 32px !important;
+    background:  rgba(147, 147, 147, 0.15);
+}
+
+nav * {
+    font-size: 20px;
+}
+
+nav > span {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+nav > span:hover, nav span.active  {
+    cursor: pointer;
+    background: rgba(115, 115, 115, 0.3);
+}
 
