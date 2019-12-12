@@ -1,0 +1,9 @@
+{
+  "script" : "#!\/bin\/sh\nlive-server .",
+  "persistent" : true,
+  "actions" : [
+    "run"
+  ],
+  "identifier" : "55A672E0-5BB9-442A-8A5D-5C167F73AF99",
+  "openLogOnRun" : "finish"
+}
