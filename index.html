@@ -807,6 +807,16 @@
             </transition-group>
         </div>
     </transition>
+	
+	<transition name="list">
+		<div class="about"  v-if="screen == 'about'">
+			<div class="inner">
+			<h2>About</h2>
+			Texts like the Universal Declaration of Human Rights derive part of their power from their conciseness.
+			This project tries to answer the question: does defining the words in these texts make them clearer or less clear?
+			Can you kill a text by over-defining it? And how hard is it to keep this expanded text apart from an expanded version of a much more mundane text?</div>
+		</div>
+	</transition>
 
     <transition name="list">
         <div class="hint" v-if="screen == 'tool' && hintVisible">

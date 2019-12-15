@@ -276,3 +276,17 @@ nav > span:hover, nav span.active  {
 .new-text {
 	margin-left: auto;
 }
+
+.about {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.about .inner {
+    max-width: 800px;
+    line-height: 1.65;
+}
